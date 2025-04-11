@@ -6,7 +6,13 @@ import FavoriteToggleButton from "@/components/products/FavoriteToggleButton";
 import AddToCart from "@/components/single-product/AddToCart";
 import ProductRating from "@/components/single-product/ProductRating";
 
-const SingleProductPage = async ({ params }: { params: { id: string } }) => {
+type SingeProductPageProps = {
+  params: {
+    id: string;
+  };
+};
+
+const SingleProductPage = async ({ params }: SingeProductPageProps) => {
   const { name, price, description, image, company } = await fetchSingleProduct(
     params.id
   );
