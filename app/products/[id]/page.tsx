@@ -6,16 +6,17 @@ import FavoriteToggleButton from "@/components/products/FavoriteToggleButton";
 import AddToCart from "@/components/single-product/AddToCart";
 import ProductRating from "@/components/single-product/ProductRating";
 
-type SingeProductPageProps = {
-  params: {
-    id: string;
-  };
-};
-
-const SingleProductPage = async ({ params }: SingeProductPageProps) => {
+const SingleProductPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const { id } = await params;
   const { name, price, description, image, company } = await fetchSingleProduct(
-    params.id
+    id
   );
+
+  
 
   const dollarsAmount = formatCurrency(price);
   return (
@@ -38,15 +39,15 @@ const SingleProductPage = async ({ params }: SingeProductPageProps) => {
         <div>
           <div className="flex gap-x-8 items-center">
             <h1 className="text-3xl capitalize font-bold">{name}</h1>
-            <FavoriteToggleButton productId={params.id} />
+            <FavoriteToggleButton productId={id} />
           </div>
-          <ProductRating productId={params.id} />
+          <ProductRating productId={id} />
           <h4 className="text-xl mt-2">{company}</h4>
           <p className="text-md mt-3 bg-muted p-2 inline-block rounded">
             {dollarsAmount}
           </p>
           <p className="mt-6 leading-8 text-muted-foreground">{description}</p>
-          <AddToCart productId={params.id} />
+          <AddToCart productId={id} />
         </div>
       </div>
     </section>
