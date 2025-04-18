@@ -20,6 +20,11 @@ const EditProductPage = async ({
 
   const product = await fetchAdminProductDetails(id);
 
+  if (!product) {
+    // Handle jika data tidak ditemukan
+    throw new Error("Produk tidak ditemukan");
+  }
+
   const { name, featured, price, image, company, description } = product;
 
   return (
