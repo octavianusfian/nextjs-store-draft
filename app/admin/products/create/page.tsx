@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import React from "react";
 import { faker } from "@faker-js/faker";
 import FormInput from "@/components/form/FormInput";
@@ -6,7 +6,7 @@ import FormContainer from "@/components/form/FormContainer";
 import { createProductAction } from "@/utils/actions";
 import PriceInput from "@/components/form/PriceInput";
 import ImageInput from "@/components/form/ImageInput";
-import TextareaInput from "@/components/form/TextareaInput";
+import TextAreaInput from "@/components/form/TextAreaInput";
 import CheckboxInput from "@/components/form/CheckboxInput";
 import { SubmitButton } from "@/components/form/Buttons";
 
@@ -35,7 +35,7 @@ const CreateProductPage = () => {
             <PriceInput />
             <ImageInput />
           </div>
-          <TextareaInput
+          <TextAreaInput
             name="description"
             labelText="product description"
             defaultValue={description}

@@ -7,7 +7,7 @@ type TextAreaInputProps = {
   defaultValue?: string;
 };
 
-const TextareaInput = ({
+const TextAreaInput = ({
   name,
   labelText,
   defaultValue,
@@ -29,4 +29,4 @@ const TextareaInput = ({
   );
 };
 
-export default TextareaInput;
+export default TextAreaInput;
