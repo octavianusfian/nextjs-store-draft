@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
       <div>
         <h1 className="text-4xl max-w-2xl font-bold tracking-light sm:text-6xl">
-          We are changing the way people shop
+          We are changing the way people shop nowadays
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-8 text-muted-foreground">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem
