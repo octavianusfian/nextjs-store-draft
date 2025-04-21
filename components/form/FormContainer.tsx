@@ -19,7 +19,7 @@ const FormContainer = ({
   useEffect(() => {
     if (state.message) {
       toast("Success", {
-        description: <span className="text-green-500">{state.message}</span>,
+        description: <span className="text-green-500 capitalize">{state.message}</span>,
       });
     }
   }, [state]);

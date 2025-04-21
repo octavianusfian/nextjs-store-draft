@@ -11,8 +11,6 @@ const ProductsGrid = ({ products }: { products: Product[] }) => {
     <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {products.map((product) => {
         const { name, price, image } = product;
-        console.log(image);
-        
 
         const productId = product.id;
         const dollarsAmount = formatCurrency(price);

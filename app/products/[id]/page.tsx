@@ -1,10 +1,14 @@
 import BreadCrumbs from "@/components/single-product/BreadCrumbs";
-import { fetchSingleProduct } from "@/utils/actions";
+import { fetchSingleProduct, findExistingReview } from "@/utils/actions";
 import Image from "next/image";
 import { formatCurrency } from "@/utils/format";
 import FavoriteToggleButton from "@/components/products/FavoriteToggleButton";
 import AddToCart from "@/components/single-product/AddToCart";
 import ProductRating from "@/components/single-product/ProductRating";
+import ShareButton from "@/components/single-product/ShareButton";
+import ProductReviews from "@/components/reviews/ProductReviews";
+import SubmitReview from "@/components/reviews/SubmitReview";
+import { auth } from "@clerk/nextjs/server";
 
 const SingleProductPage = async ({
   params,
@@ -16,11 +20,13 @@ const SingleProductPage = async ({
     id
   );
 
-  
+  const { userId } = await auth();
+
+  const reviewDoesNotExist = userId && !(await findExistingReview(userId, id));
 
   const dollarsAmount = formatCurrency(price);
   return (
-    <section>
+    <section> 
       <BreadCrumbs name={name} />
       <div className="mt-6 grid gap-y-8 lg:grid-cols-2 lg:gap-x-16">
         {/* IMAGES */}
@@ -39,7 +45,10 @@ const SingleProductPage = async ({
         <div>
           <div className="flex gap-x-8 items-center">
             <h1 className="text-3xl capitalize font-bold">{name}</h1>
-            <FavoriteToggleButton productId={id} />
+            <div className="flex items-center gap-x-2">
+              <FavoriteToggleButton productId={id} />
+              <ShareButton productId={id} name={name} />
+            </div>
           </div>
           <ProductRating productId={id} />
           <h4 className="text-xl mt-2">{company}</h4>
@@ -50,6 +59,8 @@ const SingleProductPage = async ({
           <AddToCart productId={id} />
         </div>
       </div>
+      <ProductReviews productId={id} /> 
+      {reviewDoesNotExist && <SubmitReview productId={id} />}
     </section>
   );
 };
