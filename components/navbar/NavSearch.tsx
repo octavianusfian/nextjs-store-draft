@@ -37,7 +37,7 @@ const NavSearch = () => {
     <Input
       className="max-w-xs dark:bg-muted"
       type="search"
-      placeholder="search products..."
+      placeholder="Search Products..."
       value={search}
       onChange={(e) => {
         setSearch(e.target.value);

@@ -1,13 +1,19 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { VscCode } from "react-icons/vsc";
+import Image from "next/image";
 
 const Logo = () => {
   return (
-    <Button asChild size="icon">
-      <Link href={"/"}>
-        <VscCode className="h-6 w-6" />
+    <Button asChild className="p-0 bg-transparent hover:bg-transparent">
+      <Link href="/">
+        <Image
+          src="/images/logo_icon.png"
+          alt="Logo"
+          width={200}
+          height={200}
+          className="w-[70px] object-cover rounded-full"
+        />
       </Link>
     </Button>
   );

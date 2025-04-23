@@ -17,8 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next Store",
-  description: "Fill your needs and make a happy life",
+  title: "PixelNest: Marketplace Produk Digital Terbaik",
+  description:
+    "PixelNest adalah platform inovatif untuk membeli dan menjual produk digital berkualitas tinggi—e‑book, template desain, musik, dan preset foto—yang dapat langsung diunduh untuk kebutuhan pribadi maupun profesional.",
 };
 
 export default function RootLayout({
@@ -29,6 +30,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
+        <head>
+          <link rel="icon" href="/images/logo_icon.png" type="image/png" />
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
