@@ -33,15 +33,19 @@ const ImageInputContainer = (props: ImageInputContainerProps) => {
         variant={"outline"}
         size={"sm"}
         onClick={() => setIsUpdateFormVisible((prev) => !prev)}
+        className="capitalize cursor-pointer"
       >
         {text}
       </Button>
+
       {isUpdateFormVisible && (
         <div className="max-w-md mt-4">
           <FormContainer action={action}>
             {props.children}
-            <ImageInput />
-            <SubmitButton size="sm" text={text} />
+            <div className="flex gap-x-4 items-end">
+              <ImageInput />  
+              <SubmitButton size="sm" text={text} className="mb-2"/>
+            </div>
           </FormContainer>
         </div>
       )}

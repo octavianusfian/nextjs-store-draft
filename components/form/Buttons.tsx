@@ -27,7 +27,7 @@ export function SubmitButton({
       type="submit"
       disabled={pending}
       size={size}
-      className={cn("capitalize", className)}
+      className={cn("capitalize cursor-pointer", className)}
     >
       {pending ? (
         <>
@@ -51,7 +51,7 @@ export const IconButton = ({ actionType }: { actionType: ActionType }) => {
       case "edit":
         return <LuPen />;
       case "delete":
-        return <LuTrash2 />;
+        return <LuTrash2 className="text-red-500"/>;
       default:
         const never: never = actionType;
 
