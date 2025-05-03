@@ -32,7 +32,7 @@ const SelectProductAmount = (
   const cartItem = mode === Mode.CartItem;
 
   return (
-    <>
+    <div className="flex gap-2 items-center md:flex-col">
       <h4 className="mb-2">Amount : </h4>
       <Select
         defaultValue={amount.toString()}
@@ -57,7 +57,7 @@ const SelectProductAmount = (
           )}
         </SelectContent>
       </Select>
-    </>
+    </div>
   );
 };
 

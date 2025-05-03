@@ -14,7 +14,7 @@ const CartItemsList = ({ cartItems }: { cartItems: CartItemWithProduct[] }) => {
         return (
           <Card
             key={id}
-            className="flex flex-col gap-y-4 md:flex-row flex-wrap p-6 mb-8 gap-x-4"
+            className="flex items-center flex-col gap-y-4 md:flex-row md:items-start flex-wrap p-6 mb-8 gap-x-4"
           >
             <FirstColumn name={name} image={image} />
             <SecondColumn name={name} company={company} productId={productId} />

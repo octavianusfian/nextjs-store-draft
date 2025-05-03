@@ -12,7 +12,7 @@ const Logo = () => {
           alt="Logo"
           width={200}
           height={200}
-          className="w-[70px] object-cover rounded-full"
+          className="w-[3rem] object-cover rounded-full"
         />
       </Link>
     </Button>

@@ -34,7 +34,7 @@ export default function RootLayout({
           <link rel="icon" href="/images/logo_icon.png" type="image/png" />
         </head>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen`}
         >
           <Providers>
             <Navbar />

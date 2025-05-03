@@ -35,7 +35,7 @@ const NavSearch = () => {
 
   return (
     <Input
-      className="max-w-xs dark:bg-muted"
+      className="w-full sm:max-w-xs dark:bg-muted"
       type="search"
       placeholder="Search Products..."
       value={search}

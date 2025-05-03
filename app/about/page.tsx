@@ -6,7 +6,7 @@ import { FaBookAtlas } from "react-icons/fa6";
 
 function AboutPage() {
   return (
-    <section className="grid md:grid-cols-2 gap-8 max-h-[500px]">
+    <section className="grid md:grid-cols-2 gap-8 max-h-[500px] ">
       <div>
         <div>
           <h1 className="flex flex-wrap gap-2 sm:gap-x-6 items-center  text-4xl font-bold leading-none tracking-wide sm:text-6xl">
@@ -24,7 +24,7 @@ function AboutPage() {
             you find tools that inspire, elevate, and simplify your work.
           </p>
         </div>
-        <div className="grid grid-cols-3 mt-8">
+        <div className="grid gap-8 justify-items-center sm:grid-cols-3 mt-8 sm:justify-items-start">
           <AboutStatistic
             icon={<IoStorefrontSharp className="text-xl" />}
             title="Monthly visit"
@@ -43,7 +43,7 @@ function AboutPage() {
         </div>
       </div>
 
-      <div>
+      <div className="py-3">
         <AboutImage />
       </div>
     </section>

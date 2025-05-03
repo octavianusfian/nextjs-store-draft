@@ -34,16 +34,16 @@ const ThirdColumn = ({ quantity, id }: { quantity: number; id: string }) => {
     setIsLoading(false);
   };
   return (
-    <div className="md:ml-8">
+    <div className="md:ml-8 flex md:flex-col gap-4 items-center">
       <SelectProductAmount
         amount={amount}
         setAmount={handleAmountChange}
         mode={Mode.CartItem}
         isLoading={isLoading}
       />
-      <FormContainer action={removeCartItemAction}>
+      <FormContainer action={removeCartItemAction} >
         <input type="hidden" name="id" value={id} />
-        <SubmitButton text="remove" className="mt-4" size="sm" />
+        <SubmitButton text="remove" className="mt-0 md:mt-4" size="sm" />
       </FormContainer>
     </div>
   );

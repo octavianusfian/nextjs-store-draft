@@ -9,7 +9,7 @@ type AboutStatisticProps = {
 
 const AboutStatistic = ({ icon, title, number }: AboutStatisticProps) => {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 items-center">
       <div className="border w-10 h-10 rounded-full bg-slate-100 flex justify-center items-center">
         {icon}
       </div>

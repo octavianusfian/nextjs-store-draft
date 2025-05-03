@@ -6,7 +6,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-      <div>
+      <div className="text-center md:text-start">
         <h1 className="text-4xl max-w-2xl font-bold tracking-light sm:text-6xl">
           A Modern Digital Product Marketplace
         </h1>
