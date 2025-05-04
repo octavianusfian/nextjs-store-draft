@@ -6,28 +6,42 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { fetchAllProducts } from "@/utils/actions";
 import Link from "next/link";
+import FiltersProduct from "./FiltersProduct";
 
 type ProductsContainerProps = {
   layout: string;
   search: string;
+  minPrice: number;
+  maxPrice: number;
+  company: string;
 };
 
 const ProductsContainer = async ({
   search,
   layout,
+  company,
+  minPrice,
+  maxPrice,
 }: ProductsContainerProps) => {
-  const products = await fetchAllProducts({search});
+  const products = await fetchAllProducts({
+    search,
+    company,
+    minPrice,
+    maxPrice,
+  });
+
   console.log(products);
-  
+
   const totalProducts = products.length;
   const searchTerm = search ? `&search=${search}` : "";
   return (
     <>
       <section>
-        <div className="flex items-center justify-between">
-          <h4 className="font-medium text-lg">
+        <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-4">
+          <h4 className="font-medium text-lg ">
             {totalProducts} product{totalProducts > 1 && "s"}
           </h4>
+          <FiltersProduct />
           <div className="flex gap-x-4">
             <Button
               asChild

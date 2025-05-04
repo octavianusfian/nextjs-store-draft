@@ -45,11 +45,11 @@ const EditProductPage = async ({
           <FormInput
             name="name"
             type="text"
-            defaultValue={name}
+            value={name}
             label="product name"
           />
-          <FormInput type="text" name="company" defaultValue={company} />
-          <PriceInput defaultValue={price} />
+          <FormInput type="text" name="company" value={company} />
+          <PriceInput value={price} />
         </div>
         <TextAreaInput
           name="description"

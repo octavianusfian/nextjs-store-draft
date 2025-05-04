@@ -5,16 +5,20 @@ type FormInputProps = {
   name: string;
   type: string;
   label?: string;
-  defaultValue?: string;
   placeholder?: string;
+  value?: string;
+  required?: boolean;
+  onChange?: (value: string) => void;
 };
 
 const FormInput = ({
   name,
   type,
   label,
-  defaultValue,
   placeholder,
+  value,
+  onChange,
+  required = true,
 }: FormInputProps) => {
   return (
     <div className="mb-2">
@@ -25,9 +29,11 @@ const FormInput = ({
         id={name}
         name={name}
         type={type}
-        defaultValue={defaultValue}
+        onChange={(e) => onChange?.(e.target.value)}
+        value={value}
+        // defaultValue={defaultValue}
         placeholder={placeholder}
-        required
+        required={required}
       />
     </div>
   );

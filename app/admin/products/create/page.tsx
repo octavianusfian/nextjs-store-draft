@@ -24,13 +24,13 @@ const CreateProductPage = () => {
               name="name"
               type="text"
               label="product name"
-              defaultValue={name}
+              value={name}
             />
             <FormInput
               name="company"
               type="text"
               label="company"
-              defaultValue={company}
+              value={company}
             />
             <PriceInput />
             <ImageInput />

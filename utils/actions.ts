@@ -46,18 +46,29 @@ export const fetchFeaturedProducts = async () => {
   return products;
 };
 
-export const fetchAllProducts = async ({ search = "" }: { search: string }) => {
-  return db.product.findMany({
+export const fetchAllProducts = async ({
+  search = "",
+  minPrice = 100,
+  maxPrice = 10000,
+  company = "",
+}: {
+  search: string;
+  minPrice: number;
+  maxPrice: number;
+  company: string;
+}) => {
+  console.log(company);
+
+  const products = await db.product.findMany({
     where: {
-      OR: [
-        { name: { contains: search, mode: "insensitive" } },
-        { company: { contains: search, mode: "insensitive" } },
-      ],
-    },
-    orderBy: {
-      createdAt: "desc",
+      name: { contains: search, mode: "insensitive" },
+      company: { contains: company, mode: "insensitive" },
+      ...(minPrice !== undefined && { price: { gte: minPrice } }),
+      ...(maxPrice !== undefined && { price: { lte: maxPrice } }),
     },
   });
+
+  return products;
 };
 
 export const fetchSingleProduct = async (productId: string) => {
@@ -143,6 +154,30 @@ export const fetchAdminProductDetails = async (productId: string) => {
   if (!product) redirect("/admin/products");
 
   return product;
+};
+
+export const filtersProductAction = async (formData: FormData) => {
+  try {
+    const price = formData.getAll("price") as string[];
+    const [min, max] = price.map((val) => parseFloat(val));
+
+    const company = formData.get("company")?.toString();
+
+    const products = await db.product.findMany({
+      where: {
+        ...(company && { company: { contains: company, mode: "insensitive" } }),
+        ...(min !== undefined && { price: { gte: min } }),
+        ...(max !== undefined && { price: { lte: max } }),
+      },
+    });
+
+    return {
+      message: "Product filters successfully",
+      products,
+    };
+  } catch (error) {
+    return renderError(error);
+  }
 };
 
 export const updateProductAction = async (
