@@ -11,6 +11,7 @@ const HomePage = () => {
       <Suspense fallback={<LoadingContainer />}>
         <FeaturedProducts />
       </Suspense>
+     
     </>
   );
 };
