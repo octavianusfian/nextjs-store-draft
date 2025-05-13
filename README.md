@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🛍️ PixelNest - E-Commerce for Digital Assets
 
-First, run the development server:
+**PixelNest** adalah platform e-commerce modern yang memungkinkan pengguna menjual dan membeli produk digital seperti e-book, desain, template, dan lainnya. Dibangun dengan teknologi terbaru untuk performa, keamanan, dan kemudahan penggunaan.
+
+![PixelNest Screenshot](./bc7d0d35-44a2-492e-bcb3-db8152548ca3.png)
+
+🌐 [Lihat Demo](https://nextjs-store-draft-black.vercel.app/)
+
+---
+
+## ✨ Fitur Utama
+
+- 🔐 Login & Register (Auth by Clerk)
+- 🛒 Katalog Produk Digital
+- ❤️ Favorite Produk
+- 📝 Review Produk
+- 📦 Riwayat Pesanan
+- 📄 Halaman Detail Produk
+- 💳 Pembayaran Terintegrasi Stripe
+- 🧑‍💼 Dashboard Admin
+- 🔍 Filter & Pagination Produk
+- ℹ️ Halaman Tentang
+
+---
+
+## 🧰 Teknologi yang Digunakan
+
+- **Frontend**: [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), TypeScript
+- **Authentication**: [Clerk](https://clerk.dev/)
+- **Database**: PostgreSQL via [Prisma](https://www.prisma.io/)
+- **Storage**: [Supabase](https://supabase.io/)
+- **Payments**: [Stripe](https://stripe.com/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## ⚙️ Instalasi Lokal (Development)
 
 ```bash
+# 1. Clone repo
+git clone <repository-url>
+cd pixelnest
+
+# 2. Install dependencies
+npm install
+
+# 3. Tambahkan file .env.local dan isi variabel berikut:
+# (Lihat bagian Environment Variables di bawah)
+
+# 4. Jalankan development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔐 Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Tambahkan variabel berikut ke file `.env.local`:
 
-## Learn More
+```env
+DB_PASSWORD=
+DATABASE_URL=
+DIRECT_URL=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+ADMIN_USER_ID=
+SUPABASE_URL=
+SUPABASE_KEY=
+NEXT_PUBLIC_WEBSITE_URL=
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+```
 
-To learn more about Next.js, take a look at the following resources:
+> ⚠️ Nilai variabel disesuaikan dengan konfigurasi kamu. Jangan commit file `.env.local`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Struktur Direktori (Singkat)
 
-## Deploy on Vercel
+```
+/
+├─ app/                  # Routing dan halaman utama (Next.js App Router)
+├─ components/           # Komponen UI reusable
+├─ lib/                  # Utility dan konfigurasi helper (Clerk, Prisma, Stripe)
+├─ public/               # Aset publik (logo, ikon, dsb)
+├─ styles/               # File Tailwind dan globals
+├─ prisma/               # Skema database
+├─ middleware.ts         # Proteksi route
+├─ .env.local            # Konfigurasi environment
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👤 Author
+
+**Octavianus Fian**  
+🔗 [Website](https://nextjs-store-draft-black.vercel.app/)
+
+---
+
+## ⚖️ Lisensi
+
+Lisensi penggunaan proyek ini mengikuti [MIT License](https://choosealicense.com/licenses/mit/).
+
+---
+
+> Jika kamu suka project ini, silakan bintangi repo-nya ⭐ dan fork untuk pengembangan pribadi!
