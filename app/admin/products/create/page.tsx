@@ -1,4 +1,5 @@
 // import { Button } from "@/components/ui/button";
+"use client";
 import React from "react";
 import { faker } from "@faker-js/faker";
 import FormInput from "@/components/form/FormInput";
