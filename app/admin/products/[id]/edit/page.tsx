@@ -1,8 +1,8 @@
 import { fetchAdminProductDetails } from "@/utils/actions";
 import EditProductForm from "./edit-product-form";
 
-const EditProductPage = async ({ params }: { params: { id: string } }) => {
-  const { id } = params;
+const EditProductPage = async (props: { params: Promise<{ id: string }> }) => {
+  const { id } = await props.params;
   const product = await fetchAdminProductDetails(id);
 
   if (!product) {
